@@ -7,4 +7,7 @@ public class MenuManager : MonoBehaviour
     public void ChoosePlaymode(){
         transform.GetChild(3).gameObject.SetActive(!transform.GetChild(3).gameObject.activeSelf);
     }
+    private void Start() {
+        Cursor.lockState = CursorLockMode.None;
+    }
 }

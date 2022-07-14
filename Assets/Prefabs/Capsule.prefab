@@ -378,6 +378,8 @@ GameObject:
   - component: {fileID: 2741449548118108653}
   - component: {fileID: 8291901504304611583}
   - component: {fileID: 4919730379758685}
+  - component: {fileID: 9221814537371363421}
+  - component: {fileID: 9035332434196786987}
   m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
@@ -551,6 +553,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponID: 0
   weaponBackID: 0
+--- !u!114 &9221814537371363421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2741449548118108565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae0a01de81910c459c137f476395371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 100
+  hpBar: {fileID: 0}
+--- !u!114 &9035332434196786987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2741449548118108565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d937da7d06731be4b83fc459b8fe4c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damages: 0200000001000000
 --- !u!1 &2741449548460207564
 GameObject:
   m_ObjectHideFlags: 0
