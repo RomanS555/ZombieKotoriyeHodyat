@@ -7,11 +7,13 @@ public class WeaponPlayer : MonoBehaviour
     [Min(0)]public int weaponID;
     [Min(0)]public int weaponBackID;
     private Animator anim;
+    private Transform weapons;
     private Camera cam;
     void Start()
     {
         anim = transform.GetChild(0).GetChild(0).GetComponent<Animator>();
         cam = Camera.main;
+        weapons = transform.GetChild(0).GetChild(0).GetChild(2);
     }
 
     
@@ -23,6 +25,13 @@ public class WeaponPlayer : MonoBehaviour
            tre = weaponID;
            weaponID = weaponBackID;
            weaponBackID = tre;
+        }
+
+        for(int i = 0; i < weapons.childCount; i++){
+            
+            if(weaponID-1 == i){
+                weapons.GetChild(i).gameObject.SetActive(true);
+            }else{weapons.GetChild(i).gameObject.SetActive(false);}
         }
 
 

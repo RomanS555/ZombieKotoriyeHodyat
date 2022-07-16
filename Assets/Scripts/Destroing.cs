@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Destroing : MonoBehaviour
 {
+
     private Rigidbody rb;
     public int HP = 4;
     private void FixedUpdate() {
@@ -13,6 +14,7 @@ public class Destroing : MonoBehaviour
     }
     private void Start() {
         rb = GetComponent<Rigidbody>();
+        
     }
-    
+
 }

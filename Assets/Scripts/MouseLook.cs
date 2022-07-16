@@ -7,7 +7,9 @@ public class MouseLook : MonoBehaviour
     [SerializeField] float sensitivity;
     [SerializeField] float maxAngle = 90f;
     float rotX = 0;
+    
     Camera cam;
+    
     void Start()
     {
         cam = Camera.main;
