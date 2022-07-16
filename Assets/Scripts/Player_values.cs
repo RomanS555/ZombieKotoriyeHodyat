@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 public class Player_values : MonoBehaviour
 {
     public float HP;
-    [SerializeField] Image hpBar;
+    [SerializeField] Slider hpBar;
 
     private void FixedUpdate() {
-        hpBar.rectTransform.sizeDelta = Vector3.right * HP *2 + Vector3.up*hpBar.rectTransform.sizeDelta.y;
+        hpBar.value = HP;
         if(HP<=0){
             SceneManager.LoadScene("MainMenu");
         }
