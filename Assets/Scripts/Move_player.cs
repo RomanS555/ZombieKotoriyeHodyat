@@ -9,6 +9,7 @@ public class Move_player : MonoBehaviour
     [SerializeField] private float maxSpeed;
     [SerializeField] private float jumpStrengh;
     [SerializeField] bool isGround;
+    private Player_values PV;
 
     [SerializeField] private Vector3 velocity;
     
@@ -16,6 +17,7 @@ public class Move_player : MonoBehaviour
     private Animator an;
     void Start()
     {
+        PV = GetComponent<Player_values>();
         rb = GetComponent<Rigidbody>();
         an = transform.GetChild(0).GetChild(0).GetComponent<Animator>();
 
@@ -40,11 +42,18 @@ public class Move_player : MonoBehaviour
             rb.velocity += transform.up * jumpStrengh;
             isGround = false;
         }
+        
        
         
     }
     private void OnTriggerStay(Collider other) {
         isGround = true;
+       
+    }
+    private void OnTriggerEnter(Collider other) {        
+        if(-rb.velocity.y > 5){
+            PV.HPoperation(-rb.velocity.y*2);
+        }
     }
     private void OnTriggerExit(Collider other) {
         isGround = false;

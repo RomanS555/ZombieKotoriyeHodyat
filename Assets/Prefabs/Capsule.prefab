@@ -167,7 +167,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -419,7 +419,7 @@ MeshRenderer:
   m_GameObject: {fileID: 2741449548118108565}
   m_Enabled: 1
   m_CastShadows: 0
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -462,8 +462,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.38222045, y: 0.14685583, z: 0.47137868}
-  m_Center: {x: 0.014957815, y: -0.9637594, z: 0.05043298}
+  m_Size: {x: 0.38222045, y: 0.31442106, z: 0.47137868}
+  m_Center: {x: 0.014957816, y: -1.0475419, z: 0.050432984}
 --- !u!136 &2741449548118108648
 CapsuleCollider:
   m_ObjectHideFlags: 0

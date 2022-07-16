@@ -4,6 +4,7 @@ using UnityEngine;
 public class Explotions : MonoBehaviour
 {
     private ParticleSystem Expl;
+    public float damage;
     void Start()
     {
         Expl = transform.GetChild(0).GetComponent<ParticleSystem>();
