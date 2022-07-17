@@ -12,6 +12,9 @@ public class AIZombie : MonoBehaviour
     private NavMeshAgent agent;
 
     private Animator an;
+    [SerializeField]private GameObject target;
+    [SerializeField]private GameObject ragdoll;
+
    
     void Start()
     {
@@ -21,13 +24,23 @@ public class AIZombie : MonoBehaviour
     }
     private void FixedUpdate() {
         if(HP <= 0){
+            var d = Instantiate(ragdoll,transform.position,transform.rotation);
+            d.transform.GetChild(0).GetChild(0).GetComponent<Rigidbody>().AddForce(-transform.forward*4);
             Destroy(gameObject);
         }
         an.SetBool("isWalking",agent.velocity.magnitude != 0);
-    }
-    private void OnTriggerStay(Collider other) {
-        if(other.GetComponent<Move_player>()){
-            GameObject player = other.gameObject;
+        Player_values[] players = FindObjectsOfType<Player_values>();
+        float _mindistance = distanceOfView;
+        for(int i = 0; i < players.Length; i++){
+            GameObject player = players[i].gameObject;
+            if(Vector3.Distance(transform.GetChild(1).position,player.transform.position) <= _mindistance){
+                _mindistance = Vector3.Distance(transform.GetChild(1).position,player.transform.position);
+                target = player;
+            }
+            
+        }
+        if(target != null){
+            GameObject player = target;
             RaycastHit hit;
             if(Physics.Raycast(transform.GetChild(1).position,player.transform.position-transform.GetChild(1).position,out hit,distanceOfView ) && hit.transform.gameObject == player){
             
@@ -40,15 +53,15 @@ public class AIZombie : MonoBehaviour
                             player.GetComponent<Player_values>().HPoperation(damage);
                             _attackCooldown = attackCooldown;
                             an.SetTrigger("attack");
-                            agent.isStopped = true;
+                            
 
                         }
                                 
-                 }else agent.isStopped = false;
+                 }
              }
-         }
-           
-            
         }
+        
     }
+}
+    
 

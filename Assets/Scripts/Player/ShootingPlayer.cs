@@ -12,7 +12,7 @@ public class ShootingPlayer : MonoBehaviour
     //[SerializeField] private string[] audios;
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) && wp.weaponID != 0){
+        if(Input.GetMouseButtonDown(0) && wp.weaponID != 0 && damages[wp.weaponID-1] > 0){
             Shoot(wp.weaponID-1);
             an.SetTrigger("Shoot");
         }

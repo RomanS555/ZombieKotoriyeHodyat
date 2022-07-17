@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-    [SerializeField] float sensitivity;
+    
     [SerializeField] float maxAngle = 90f;
     float rotX = 0;
     
@@ -19,9 +19,9 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.eulerAngles += new Vector3(0,sensitivity * Input.GetAxisRaw("Mouse X") * Time.deltaTime,0);
+        transform.eulerAngles += new Vector3(0,Options.sensetive * Input.GetAxisRaw("Mouse X") * Time.deltaTime,0);
         
-        rotX += Input.GetAxisRaw("Mouse Y") * sensitivity * Time.deltaTime;
+        rotX += Input.GetAxisRaw("Mouse Y") * Options.sensetive * Time.deltaTime;
         rotX = Mathf.Clamp(rotX,-maxAngle,maxAngle);
         cam.transform.localEulerAngles = new Vector3(-rotX,0,0);
     }

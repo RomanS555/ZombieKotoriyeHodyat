@@ -29,9 +29,9 @@ public class WeaponPlayer : MonoBehaviour
 
         for(int i = 0; i < weapons.childCount; i++){
             
-            if(weaponID-1 == i){
-                weapons.GetChild(i).gameObject.SetActive(true);
-            }else{weapons.GetChild(i).gameObject.SetActive(false);}
+            
+                weapons.GetChild(i).gameObject.SetActive(weaponID-1 == i);
+            
         }
 
 
