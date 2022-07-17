@@ -24,8 +24,9 @@ public class AIZombie : MonoBehaviour
     }
     private void FixedUpdate() {
         if(HP <= 0){
-            var d = Instantiate(ragdoll,transform.position,transform.rotation);
-            d.transform.GetChild(0).GetChild(0).GetComponent<Rigidbody>().AddForce(-transform.forward*4);
+            var d = Instantiate(ragdoll,transform.position,transform.GetChild(0).rotation);
+            d.transform.GetChild(0).GetChild(0).GetComponent<Rigidbody>().AddForce(-transform.forward*400);
+            
             Destroy(gameObject);
         }
         an.SetBool("isWalking",agent.velocity.magnitude != 0);
@@ -33,7 +34,8 @@ public class AIZombie : MonoBehaviour
         float _mindistance = distanceOfView;
         for(int i = 0; i < players.Length; i++){
             GameObject player = players[i].gameObject;
-            if(Vector3.Distance(transform.GetChild(1).position,player.transform.position) <= _mindistance){
+            RaycastHit hit;
+            if(Vector3.Distance(transform.GetChild(1).position,player.transform.position) <= _mindistance && Physics.Raycast(transform.GetChild(1).position,player.transform.position-transform.GetChild(1).position,out hit,distanceOfView ) && hit.transform.gameObject == player){
                 _mindistance = Vector3.Distance(transform.GetChild(1).position,player.transform.position);
                 target = player;
             }
